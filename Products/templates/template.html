@@ -1,7 +1,21 @@
+    <div>
+    <h1> LOGO SKLEPU    <form action="{% url 'searchbar' %}" method="get">
+      <input name="query" type="text" placeholder="Search here.." >
+      <button type="submit" name="button">Submit</button>
+    </form>   logout </h1>
+    </div>
+    <div style="clear:both"></div>
+    <div style="width:200px; float:left">
+        <h3> MENU :) </h3>
+        {% for cat in category %}
 
+        <p><a href="/category/{{cat.id}}"> {{ cat.name }} </a> </p>
 
-    {% for cat in category %}
+        {% endfor %}
+    </div>
 
-    <p><a href="category/{{cat.id}}"> {{ cat.name }} </a> </p>
+    <div style="width: 700; float:left">
+        {%block products %} {% endblock products %}
+    </div>
+    <div style="clear:both"></div>
 
-    {% endfor %}
