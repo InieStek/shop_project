@@ -29,6 +29,8 @@ class Products(models.Model):
     name = models.CharField(max_length=100)
     descryption = models.TextField(blank=True)
     price = models.DecimalField(max_digits=12,decimal_places=2)
+    slug = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='product-image', default='')
 
 
     def __str__(self):

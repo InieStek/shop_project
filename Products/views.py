@@ -19,3 +19,9 @@ def products(request, id):
         "<p></p>" +  str(products_user.descryption)  + "</p>" + \
         "<p>" +  str(products_user.price) + "</p>"
     return HttpResponse(inscryption)
+
+def SearchPage(request):
+    srh = request.GET['query']
+    products = Products.objects.filter(name__icontains=srh)
+    params = {'products': products, 'search': srh}
+    return render(request, 'searchbar.html', params)

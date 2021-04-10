@@ -1,12 +1,14 @@
+<body>
+    <h1>Search Result</h1>
+    <ul>
+        {% for products in products %}
+        <li>
+          {{ products.name }}, {{ products.price }}
+        </li>
 
-
-    {% for product in products_user %}
-        <h3>{{product.name}}</h3>
-        <p>{{product.description}}</p>
-<!--        <img src="{{ product.picture.url }}">-->
-    {% empty %}
-        <h2>No results found</h2>
-    {% endfor %}
+        {% endfor %}
+    </ul>
+  </body>
 
     <a href="{{request.META.HTTP_REFERER}}">Back</a>
 

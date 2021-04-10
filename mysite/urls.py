@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index),
     path('category/<id>/', category, name='category'),
-    path('products/<id>/',products, name='products')
+    path('products/<id>/',products, name='products'),
+    path('search/', SearchPage, name='search_result'),
 ]
