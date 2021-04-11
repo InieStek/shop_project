@@ -1,14 +1,16 @@
+{% extends 'template.html' %}
+{% block search %}
 <body>
     <h1>Search Result</h1>
     <ul>
         {% for products in products %}
         <li>
-          {{ products.name }}, {{ products.price }}
+          <a href="/products/{{products.id}}">{{ products.name }}, {{ products.price }} </a>
         </li>
 
         {% endfor %}
     </ul>
   </body>
 
-    <a href="{{request.META.HTTP_REFERER}}">Back</a>
-
+    <a href="/">Home Page</a>
+    {% endblock %}

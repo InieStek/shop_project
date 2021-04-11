@@ -2,13 +2,29 @@
 <link rel="|https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <div>
 
-    <h1> LOGO SKLEPU
+    <h1> LOGO SKLEPU <h1/>
+        {% block search %}
         <form action="{% url 'search_result' %}" method="get">
       <input name="query" type="text" placeholder="Search here.." >
       <button type="submit" name="button">Search</button>
+      {% endblock %}
+      {%block products %}
+      {% endblock %}
+    {% block login %}
+    {% if user.is_authenticated %}
+    Hi {{ user.username }}!
+    <a href="{% url 'logout' %}">Log Out</a>
+    {% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+    {% endblock %}
 
+    {% block registration %}
+    <a href="{% url 'signup' %}">Sign Up</a>
+    {% endblock %}
     </div>
-    {% block content %}<h2>Sign Up</h2><p><a href="signup/">{{signup.html}}</a></p>{% endblock content %}
+
     <div style="clear:both"></div>
     <div style="width:200px; float:left">
 

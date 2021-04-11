@@ -6,10 +6,9 @@
         <p> {{products_user.producent}} </p>
         <p> {{products_user.descryption}} </p>
         <p> {{products_user.price}} </p>
-
+        <a href="/">Home Page</a>
     {% else %}
         <p>There is no such product</p>
     {% endif %}
 
     {% endblock products %}
-    <a href="{{request.META.HTTP_REFERER}}">Back</a>
