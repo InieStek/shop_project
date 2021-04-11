@@ -1,8 +1,5 @@
-{% extends 'template.html' %}
-
-
 {% block registration %}
-  <h2>Sign up</h2>
+<h2 xmlns="http://www.w3.org/1999/html">Sign up</h2>
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
@@ -18,5 +15,6 @@
       </p>
     {% endfor %}
     <button type="submit" value="Save" name="signup">Sign up</button>
+
   </form>
 {% endblock %}

@@ -22,6 +22,6 @@ urlpatterns = [
     path('category/<id>/', category, name='category'),
     path('products/<id>/',products, name='products'),
     path('search/', SearchPage, name='search_result'),
-    path('signup/', signup, name='signup'),
+    path(r'^signup/$', signup, name='signup'),
     path('accounts/',include('django.contrib.auth.urls'))
 ]
