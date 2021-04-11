@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Products, Category
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
 # Create your views here.
 
 def index(request):
