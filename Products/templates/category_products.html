@@ -1,18 +1,11 @@
-    {% extends 'template.html' %}
+{% extends 'template.html' %}
 
-    {%block category_products %}
-
-        {% if category_product %}
-
-            {% for products in category_product %}
-
-                <p><a href="/products/{{products.id}}"> {{products.name}}</a> </p>
-
-            {% endfor %}
-
-        {% else %}
+{%block category_products %}
 
 
-        {%endif%}
-    <li><a href="/">Home Page</a></li>
-    {% endblock %}
+<button><a href="products.html"Produkt></a></button>
+
+
+
+    <a href="/">Home Page</a></li>
+{% endblock %}
