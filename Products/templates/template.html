@@ -2,28 +2,22 @@
 <link rel="|https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <div>
 
-    <h1> LOGO SKLEPU    <form action="{% url 'search_result' %}" method="get">
+    <h1> LOGO SKLEPU
+        <form action="{% url 'search_result' %}" method="get">
       <input name="query" type="text" placeholder="Search here.." >
       <button type="submit" name="button">Search</button>
-    </form>   logout </h1>
-    </div>
 
+    </div>
+    {% block content %}<h2>Sign Up</h2><p><a href="signup/">{{signup.html}}</a></p>{% endblock content %}
     <div style="clear:both"></div>
     <div style="width:200px; float:left">
+
         <h3> MENU :) </h3>
         {% for cat in category %}
 
-        <p><a href="/category/{{cat.id}}"> {{ cat.name }} </a> </p>
-
-            {% for cat in products %}
-            <p><a href="/products/{{ products.id}}"> {{products.name}}</a> </p>
+        <p><a href="/category/{{cat.id}}/"> {{ cat.name }} </a> </p>
 
         {% endfor %}
 
     </div>
-
-    <div style="width: 700; float:left">
-        {%block products %}  {% endblock products %}
-    </div>
-    <div style="clear:both"></div>
 

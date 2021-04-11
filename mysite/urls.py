@@ -22,4 +22,5 @@ urlpatterns = [
     path('category/<id>/', category, name='category'),
     path('products/<id>/',products, name='products'),
     path('search/', SearchPage, name='search_result'),
+    path('signup/', signup, name='signup')
 ]
