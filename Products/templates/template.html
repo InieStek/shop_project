@@ -8,8 +8,7 @@
       <input name="query" type="text" placeholder="Search here.." >
       <button type="submit" name="button">Search</button>
       {% endblock %}
-      {%block products %}
-      {% endblock %}
+
     {% block login %}
     {% if user.is_authenticated %}
     Hi {{ user.username }}!
@@ -34,6 +33,9 @@
         <p><a href="/category/{{cat.id}}/"> {{ cat.name }} </a> </p>
 
         {% endfor %}
+
+        {% block products %}
+        {% endblock %}
 
     </div>
 

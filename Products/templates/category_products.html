@@ -1,18 +1,18 @@
-<!--    {% extends 'template.html' %}-->
+    {% extends 'template.html' %}
 
-<!--    {%block products %}-->
+    {%block category_products %}
 
-<!--        {% if category_product %}-->
+        {% if category_product %}
 
-<!--            {% for products in category_product %}-->
+            {% for products in category_product %}
 
-<!--                <p><a href="/products/{{products.id}}"> {{products.name}}</a> </p>-->
+                <p><a href="/products/{{products.id}}"> {{products.name}}</a> </p>
 
-<!--            {% endfor %}-->
+            {% endfor %}
 
-<!--        {% else %}-->
+        {% else %}
 
 
-<!--        {%endif%}-->
-<!--        <p><a href="{{request.META.HTTP_REFERER}}">Back</a></p>-->
-<!--    {% endblock %}-->
+        {%endif%}
+    <li><a href="/">Home Page</a></li>
+    {% endblock %}

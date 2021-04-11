@@ -7,19 +7,19 @@ from django.contrib.auth.forms import UserCreationForm
 def index(request):
     question = Products.objects.all()
     category = Category.objects.all()
-    data = {'category' : category}
+    data = {'category' : category, 'question' : question}
     return render(request, 'template.html', data)
 
 def category(request, id):
     category_user = Category.objects.get(pk=id)
-    return HttpResponse(category_user)
+    products_user = Products.objects.get(pk=id)
+    data = {'category_user': category_user, 'products_user' : products_user}
+    return render(request, 'category_products.html', data)
 
 def products(request, id):
     products_user = Products.objects.get(pk=id)
-    inscryption = "<h1>" +  str(products_user) + "</h1>" + \
-        "<p></p>" +  str(products_user.descryption)  + "</p>" + \
-        "<p>" +  str(products_user.price) + "</p>"
-    return HttpResponse(inscryption)
+    inscryption = {'products': products, 'products_user' : products_user}
+    return render(request, 'products.html', inscryption)
 
 def SearchPage(request):
     srh = request.GET['query']
