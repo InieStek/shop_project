@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Products.views import *
+from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index, name='home'),
@@ -23,5 +24,5 @@ urlpatterns = [
     path('products/<id>/',products, name='products'),
     path('search/', SearchPage, name='search_result'),
     path(r'^signup/$', signup, name='signup'),
-    path('accounts/',include('django.contrib.auth.urls'))
-]
+    path('accounts/',include('django.contrib.auth.urls')),
+    ]
