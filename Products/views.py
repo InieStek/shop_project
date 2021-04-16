@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Products, Category
+from .models import Products, Category, Producent
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
@@ -19,7 +19,8 @@ def category(request, id):
 
 def products(request, id):
     products_user = Products.objects.get(pk=id)
-    inscryption = {'products': products, 'products_user' : products_user}
+    producent_user = Producent.objects.get(pk=id)
+    inscryption = {'products': products, 'products_user' : products_user, 'producent_user' : producent_user}
     return render(request, 'products.html', inscryption)
 
 def SearchPage(request):

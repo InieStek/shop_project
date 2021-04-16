@@ -3,9 +3,9 @@
     {%block products %}
     {% if products_user %}
         <h1> {{ products_user.name}}</h1>
-        <p> {{products_user.producent}} </p>
-        <p> {{products_user.descryption}} </p>
-        <p> {{products_user.price}} </p>
+        <font><p>{{products_user.producent}}</p>  </font>
+        <font><p>{{products_user.price}} </p>  </font>
+        <p>{{products_user.image}}</p>
 
 
     {% else %}
