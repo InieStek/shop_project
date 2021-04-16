@@ -1,21 +1,20 @@
-
+<script src="https://kit.fontawesome.com/42c15de0d6.js" crossorigin="anonymous"></script>
 <link rel="|https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <div>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+{% load static %}
+<link rel="stylesheet" href="{% static 'scratch.css' %}">
+<link rel="stylesheet" href="{% static 'menu.css' %}">
+<div class="container">
 
     <h1> LOGO SKLEPU <h1/>
-        {% block search %}
-        <form action="{% url 'search_result' %}" method="get">
-      <input name="query" type="text" placeholder="Search here.." >
-      <input type="submit" value="Search"></input>
-      </form>
-      {% endblock %}
+
 
     {% block body %}
     {% endblock %}
     {% block login %}
     {% if user.is_authenticated %}
     Hi {{ user.username }}!
-    <a href="{% url 'logout' %}">Log Out</a>
+    <a href="{% url 'logout' %}" class="btn-gradient red mini">Log Out</a>
     {% else %}
     <p>You are not logged in</p>
     <a href="{% url 'login' %}">Log In</a>
@@ -23,14 +22,23 @@
     {% endblock %}
 
     {% block registration %}
-    <a href="{% url 'signup' %}">Sign Up</a>
+    <a href="{% url 'signup' %}" class="btn-gradient blue mini">Sign Up <i class="fas fa-sign-in-alt"></i></a>
+
     {% endblock %}
     </div>
 
     <div style="clear:both"></div>
     <div style="width:200px; float:left">
+         {% block search %}
+        <form action="{% url 'search_result' %}" method="get">
+      <input name="query" type="text" placeholder="Search here.." >
+      <button class="btn-gradient green mini" type="submit"  value="Search" >Search <i class="fas fa-search"></i></button>
 
+      </form>
+      {% endblock %}
+        <nav class="dropdownmenu">
         <h3> MENU :) </h3>
+
         {% for cat in category %}
 
         <p><a href="/category/{{cat.id}}/"> {{ cat.name }} </a> </p>
@@ -40,6 +48,5 @@
         {% endblock %}
         {% block products %}
         {% endblock %}
-
+        </nav>
     </div>
-

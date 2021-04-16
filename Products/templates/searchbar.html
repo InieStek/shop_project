@@ -5,7 +5,7 @@
     <ul>
         {% for products in products %}
         <li>
-          <a href="/products/{{products.id}}">{{ products.name }}, {{ products.price }} </a>
+          <a href="/products/{{products.id}}" class="btn-gradient green mini">{{ products.name }}, {{ products.price }} </a>
         </li>
 
         {% endfor %}

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Products.views import *
+from django.conf.urls.static import static
 from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,5 @@ urlpatterns = [
     path('search/', SearchPage, name='search_result'),
     path(r'^signup/$', signup, name='signup'),
     path('accounts/',include('django.contrib.auth.urls')),
+
     ]
