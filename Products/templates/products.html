@@ -1,12 +1,13 @@
     {% extends 'template.html' %}
-
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'image.css' %}">
     {%block products %}
     {% if products_user %}
         <h1> {{ products_user.name}}</h1>
         <font><p>{{products_user.producent}}</p>  </font>
         <font><p>{{products_user.price}} </p>  </font>
-        <p>{{products_user.image}}</p>
-
+        <img src="/media/{{products_user.image}}" width="400"
+     height=auto>
 
     {% else %}
         <p>There is no such product</p>
