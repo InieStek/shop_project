@@ -7,47 +7,64 @@
 <link rel="stylesheet" href="{% static 'username.css' %}">
 <div class="container">
 
-    <h1> <a href="/"><img src='{% static "logo.jpg" %}'/></a> <h1/>
+    <h1><a href="/"><img src='{% static "logo.jpg" %}'/></a>
+        <h1/>
 
 
-    {% block body %}
-    {% endblock %}
-    {% block login %}
-    {% if user.is_authenticated %}
-    Hi <span class="txt--gradient-green"> {{ user.username  }} </span> !
-    <a href="{% url 'logout' %}" class="btn-gradient red mini">Log Out</a>
-    {% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
-    {% endblock %}
+        {% block body %}
+        {% endblock %}
+        {% block login %}
+            {% if user.is_authenticated %}
+                Hi <span class="txt--gradient-green"> {{ user.username }} </span> !
+                <a href="{% url 'logout' %}" class="btn-gradient red mini"> <i class="fas fa-power-off"></i> Log Out</a>
+            {% else %}
+                <p>You are not logged in</p>
+                <a href="{% url 'login' %}">Log In</a>
+            {% endif %}
+        {% endblock %}
 
-    {% block registration %}
-    <a href="{% url 'signup' %}" class="btn-gradient blue mini">Sign Up <i class="fas fa-sign-in-alt"></i></a>
-
-    {% endblock %}
-    </div>
-
-    <div style="clear:both"></div>
-    <div style="width:200px; float:left">
-         {% block search %}
+        {% block registration %}
+            {% if user.is_authenticated %}
+            {% else %}
+                <a href="{% url 'signup' %}" class="btn-gradient blue mini">Sign Up <i
+                        class="fas fa-sign-in-alt"></i></a>
+            {% endif %}
+        {% endblock %}
+</div>
+<center>
+    {% block search %}
         <form action="{% url 'search_result' %}" method="get">
-      <input name="query" type="text" placeholder="Search here.." >
-      <button class="btn-gradient green mini" type="submit"  value="Search" >Search <i class="fas fa-search"></i></button>
+            <input name="query" type="text" placeholder="Search here..">
+            <button class="btn-gradient green mini" type="submit" value="Search">Search <i class="fas fa-search"></i>
+            </button>
 
-      </form>
-      {% endblock %}
-        <nav class="dropdownmenu">
-        <h3> MENU :) </h3>
+        </form>
+    {% endblock %}
+</center>
+
+
+<div class="flexis" style="width:150px; height:auto">
+
+    <div class="dropdownmenu">
+        <h3> MENU </h3>
+
 
         {% for cat in category %}
-
-        <p><a href="/category/{{cat.id}}/"> {{ cat.name }} </a> </p>
-
+            <div class="siusiak"><a href="/category/{{ cat.id }}/"> {{ cat.name }} </a></div>
         {% endfor %}
         {% block category_products %}
         {% endblock %}
-        {% block products %}
-        {% endblock %}
-        </nav>
+
     </div>
+
+    <div class="pizda">
+
+
+        <div class="jakakolwiek">
+            {% block products %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+

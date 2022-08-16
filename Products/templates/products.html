@@ -1,20 +1,17 @@
-    {% extends 'template.html' %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'image.css' %}">
-    {%block products %}
-    {% if products_user %}
-        <h1> {{ products_user.name}}</h1>
-        <font><p>{{products_user.producent}}</p>  </font>
-        <font><p>{{products_user.price}} </p>  </font>
-        <img src="/media/{{products_user.image}}" width="400"
-     height=auto>
+{% extends 'template.html' %}
 
+{% block body %}
+{% endblock %}
+{% block products %}
+    {% if products_user %}
+        <font><p>{{ products_user.producent }}</p></font>
+        <h1> {{ products_user.name }}</h1>
+        <img src="/media/{{ products_user.image }}" width="200"
+        height=auto>
+        <font><p>{{ products_user.price }} </p></font>
     {% else %}
         <p>There is no such product</p>
     {% endif %}
 
 
-
-    {% endblock products %}
-    {% block body %}
-    {% endblock %}
+{% endblock products %}

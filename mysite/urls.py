@@ -22,10 +22,10 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index, name='home'),
-    path('category/<id>/', category, name='category'),
+    path('category/<int:id>/', category, name='category'),
     path('products/<id>/',products, name='products'),
-    path('search/', SearchPage, name='search_result'),
-    path(r'^signup/$', signup, name='signup'),
+    path('search/', searchPage, name='search_result'),
+    path('signup/', signup, name='signup'),
     path('accounts/',include('django.contrib.auth.urls')),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

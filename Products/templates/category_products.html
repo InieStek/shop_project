@@ -1,10 +1,5 @@
 {% extends 'template.html' %}
 
 {%block category_products %}
-
-
-    <p><a href="/products/{{products_user.id}}" >{{products_user.name}} </a></p>
-
-
-
+    <a href="/products/{{products_user.id}}" >{{products_user.name}} </a>
 {% endblock %}

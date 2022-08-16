@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
-from .models import Products, Category, Producent
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
+from .models import Products, Category, Producent
+
+
 # Create your views here.
 
 def index(request):
@@ -20,10 +22,11 @@ def category(request, id):
 def products(request, id):
     products_user = Products.objects.get(pk=id)
     producent_user = Producent.objects.get(pk=id)
-    inscryption = {'products': products, 'products_user' : products_user, 'producent_user' : producent_user}
+    category = Category.objects.all()
+    inscryption = {'products': products, 'products_user' : products_user, 'producent_user' : producent_user, 'category' : category}
     return render(request, 'products.html', inscryption)
 
-def SearchPage(request):
+def searchPage(request):
     srh = request.GET['query']
     products = Products.objects.filter(name__icontains=srh)
     params = {'products': products, 'search': srh}
@@ -42,16 +45,3 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
-
-def add_to_cart(request, product_id, quantity):
-    product = Product.objects.get(id=product_id)
-    cart = Cart(request)
-    cart.add(product, product.unit_price, quantity)
-
-def remove_from_cart(request, product_id):
-    product = Product.objects.get(id=product_id)
-    cart = Cart(request)
-    cart.remove(product)
-
-def get_cart(request):
-    return render(request, 'cart.html', {'cart': Cart(request)})
