@@ -22,11 +22,11 @@
 .siusiak{
 	width: 125px;
 }
-.pizda{
+.parentdivproduct{
 	width: 1000px;
 	display: flex;
 	justify-content: center;
 }
-.jakakolwiek{
+.childdivproduct{
 	display: block;
 }
