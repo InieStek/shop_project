@@ -1,7 +1,7 @@
 .dropdownmenu a {
 	background: #30A6E6;
 	color: #FFFFFF;
-	display: flex;
+	display: block;
 	font: bold 12px/20px sans-serif;
 	padding: 20px;
 	text-align: center;
@@ -19,7 +19,6 @@
 	background: #000000;
 }
 
-
 .siusiak{
 	width: 125px;
 }
@@ -29,5 +28,5 @@
 	justify-content: center;
 }
 .jakakolwiek{
-	display: flex;
+	display: block;
 }
