@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'hi=m-=@4$86ib1dgl)m(mc#yvr^!9uoli7-3=9^j3560m%)apl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['itshope.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['itshope.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -121,6 +121,8 @@ STATICFILES_DIRS = ['static/']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
